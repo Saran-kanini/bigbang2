@@ -214,7 +214,7 @@ export default class HomeDoctor extends Component {
     <img className="cardimg" src={doctor} alt="Doctor" />
     <div className="card-body">
       <h5 className="card-title">Doctors</h5>
-      <Link to="/docview" className="btn btn-primary">
+      <Link to="/doctor" className="btn btn-primary">
         View Doctors
       </Link>
     </div>

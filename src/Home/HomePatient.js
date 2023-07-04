@@ -201,6 +201,15 @@ export default class HomePatient extends Component {
 
 
   <div className="card-container"style={{ display: 'flex', justifyContent: 'center' }}>
+  <div className="card">
+    <img className="cardimg" src={patient} alt="Patient" />
+    <div className="card-body">
+      <h5 className="card-title">Patients</h5>
+      <Link to="/patient" className="btn btn-primary">
+        View Patients
+      </Link>
+    </div>
+    </div>
   <div className="card ">
     <img className="cardimg" style={{width:250, marginLeft:200, marginRight:10}} src={doctor} alt="Doctor" />
     <div className="card-body">

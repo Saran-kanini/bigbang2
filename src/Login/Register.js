@@ -138,12 +138,24 @@ export default function DoctorAuth() {
     return result;
   };
 
+  useEffect(() => {
+    // Check if user is already logged in
+    const token = sessionStorage.getItem('token');
+    if (token) {
+      // Get the doctor name from the token or fetch it from the backend if needed
+      const doctorName = 'John Doe'; // Replace with actual doctor name retrieval logic
+
+      // Show the welcome message popup
+      toast.success(`Welcome, ${doctorName}`);
+    }
+  }, []);
+
   return (
     <div>
       <NavDocLogin />
       <div className="login-wrap">
         <div className="login-html">
-          <input
+       <input
             id="tab-1"
             type="radio"
             name="tab"

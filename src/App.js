@@ -16,6 +16,8 @@ import HomeDoctor from './Home/HomeDoctor';
 import Doctorview from './View/Doctorview';
 import PatientView from './View/Patientview';
 import Docpatient from './View/Docpatient';
+import Appointment from './Appointment/Appointment';
+
 function App() {
   return (
     <div className="App">
@@ -34,6 +36,8 @@ function App() {
           <Route path="/docview" element={<Doctorview />} />
           <Route path="/patview" element={<PatientView />} />
           <Route path="/docpat" element={<Docpatient/>} />
+          <Route path="/appointment" element={<Appointment/>} />
+
         </Routes>
       </BrowserRouter>
     </div>
