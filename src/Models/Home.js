@@ -14,7 +14,12 @@ import icu from './ICU.jpg'
 import blood from './blood.jpg'
 import ambulance from './ambulance.jpg'
 import glucose from './glucose.jpeg'
-
+import cardio from './cardio.jpg'
+import diabet from './diabet.jpg'
+import eye from './eye.jpg'
+import kidney from './kidney.jpg'
+import ortho from './ortho.jpg'
+import pul from './pul.jpg'
 
 export default class Home extends Component {
   constructor(props) {
@@ -67,7 +72,7 @@ export default class Home extends Component {
 
     return (
       <div>
-        <Navbar />
+        <Navbar/>
         <h1 className="App">
           <img src={ambulance} className="hospital-icon" alt="Hospital Logo" />
           Medway Hospital
@@ -196,7 +201,7 @@ Excellence in cardiology
        
       </div>
 </div>
-<div className="card-container">
+<div className="card-container"style={{ display: 'flex', justifyContent: 'center' }}>
   <div className="card">
     <div className="card-body">
       <h3 className="card-title">Statistics</h3>
@@ -212,12 +217,12 @@ Excellence in cardiology
   </div>
 </div>
 
-        <div className="card-container">
+  <div className="card-container"style={{ display: 'flex', justifyContent: 'center' }}>
   <div className="card">
     <img className="cardimg" src={patient} alt="Patient" />
     <div className="card-body">
       <h5 className="card-title">Patients</h5>
-      <Link to="/patient" className="btn btn-primary">
+      <Link to="/patview" className="btn btn-primary">
         View Patients
       </Link>
     </div>
@@ -235,7 +240,100 @@ Excellence in cardiology
 
 
        <br/>
-
+       <section className="hp-sec5">
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <h3>
+              Our Specialties<span style={{ color: '#6ca836' }}></span>
+            </h3>
+          </div>
+          {/* <div className="col-md-6 col-xs-6 p-roboto p-content view_all mb-30 pt-30">
+            <a href="specialties.php">View All</a>
+          </div> */}
+        </div>
+        <div className="row">
+          <div className="col-sm-4">
+            <div className="hp-sp_sec_inner-index">
+              <img src={cardio} style={{width:300 ,height:200}} className="cardimg" />
+              <div className="hp-sp_content_index_page">
+                <h5>
+                  <a href="cardiology.php">Cardiology</a>
+                </h5>
+                <p className="p-roboto sp_p">
+                  Our Cardiology department is equipped with all the latest medical technologies to address the needs of the cardiac patients.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-4">
+            <div className="hp-sp_sec_inner-index">
+              <img src={diabet} style={{width:300 ,height:200}} className="cardimg" />
+              <div className="hp-sp_content_index_page">
+                <h5>
+                  <a href="diabetology.php">Diabetology</a>
+                </h5>
+                <p className="p-roboto">
+                  Our diabetologists are highly trained and qualified to provide comprehensive care to the patients.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-4">
+            <div className="hp-sp_sec_inner-index">
+              <img src={eye} style={{width:200}} className="cardimg" />
+              <div className="hp-sp_content_index_page">
+                <h5>
+                  <a href="nephrology.php">Nephrology</a>
+                </h5>
+                <p className="p-roboto">
+                  Our nephrologists and urologists work together to diagnose and treat the full spectrum of kidney-related conditions.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-4">
+            <div className="hp-sp_sec_inner-index">
+              <img src={kidney} style={{width:200}} className="cardimg" />
+              <div className="hp-sp_content_index_page">
+                <h5>
+                  <a href="ophthalmology.php">Ophthalmology</a>
+                </h5>
+                <p className="p-roboto">
+                  Our ophthalmology team works with specialists of all disciplines to ensure the safe and effective performance of the procedures.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-4">
+            <div className="hp-sp_sec_inner-index">
+              <img src={ortho} style={{width:200}}  className="cardimg" />
+              <div className="hp-sp_content_index_page">
+                <h5>
+                  <a href="orthopedics.php">Orthopedics</a>
+                </h5>
+                <p className="p-roboto">
+                  Our experienced orthopaedic specialists will help you maintain the health of your bones and joints.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-4">
+            <div className="hp-sp_sec_inner-index">
+              <img src={pul} style={{width:200}} className="cardimg" />
+              <div className="hp-sp_content_index_page">
+                <h5>
+                  <a href="pulmonology.php">Pulmonology</a>
+                </h5>
+                <p className="p-roboto">
+                  Medway Hospitals provides comprehensive care for lung disease and offers a fusion of services to help you live a healthy life.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
        <div>
       <section className="hp-sec8">
         <div className="container vertical-align-middle-hp-sec8">

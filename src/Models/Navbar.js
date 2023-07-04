@@ -10,7 +10,6 @@ export class Navbar extends Component {
       <div className="container">
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            
             <li className="nav-item">
               <NavLink className="nav-link" to="/home" activeClassName="active">
                 Home
@@ -27,7 +26,7 @@ export class Navbar extends Component {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/patient" activeClassName="active">
+              <NavLink className="nav-link" to="/patview" activeClassName="active">
                 Patient
               </NavLink>
             </li>
@@ -39,11 +38,11 @@ export class Navbar extends Component {
                 Register Patient
               </NavDropdown.Item>
             </NavDropdown>
-            {/* <li className="nav-item">
-              <NavLink className="nav-link" to="/login" activeClassName="active">
-                Login
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/adminlogin" activeClassName="active">
+                Logout
               </NavLink>
-            </li> */}
+            </li>
           </ul>
         </div>
       </div>

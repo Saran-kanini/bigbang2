@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Variables } from "../Variables";
-import "./Patient.css";
-import NavPatientLogin from "../Navbar/Navbarpat";
-export class Patient extends Component {
+import "./Patientview.css";
+import NavDocView from "../Models/Navbar";
+
+export class Docpatient extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,10 +55,6 @@ export class Patient extends Component {
     this.setState({ password: event.target.value });
   };
 
-  handleDoctorIdInputChange = (event) => {
-    this.setState({ doctorId: event.target.value });
-  };
-
   toggleForm = () => {
     this.setState((prevState) => ({
       showForm: !prevState.showForm,
@@ -72,7 +69,8 @@ export class Patient extends Component {
   };
 
   createPatient = () => {
-    const { patient_Name, gender, patient_Age, patient_No, password, doctorId } = this.state;
+    const { patient_Name, gender, patient_Age, patient_No, password } = this.state;
+    const doctorId = Math.floor(Math.random() * 10) + 1; // Generate a random number from 1 to 10
 
     const patient = {
       patient_Id: 0, // Change patient_id to patient_Id
@@ -81,7 +79,7 @@ export class Patient extends Component {
       patient_Age: patient_Age,
       patient_No: patient_No,
       password: password,
-      doctorId: doctorId ? parseInt(doctorId) : 0,
+      doctorId: doctorId,
       doctor: {
         // Add doctor details if necessary
       },
@@ -206,70 +204,113 @@ export class Patient extends Component {
   };
 
   render() {
-    const { patients, patient_Name, gender, patient_Age, patient_No, password,  selectedPatientId, showForm } = this.state;
+    const {
+      patients,
+      patient_Name,
+      gender,
+      patient_Age,
+      patient_No,
+      password,
+      doctorId,
+      selectedPatientId,
+      showForm,
+    } = this.state;
 
     return (
-      <div><NavPatientLogin/>
-      <div className="patient-container">
-        <h2>Patient List</h2>
-       
-        {showForm && (
-          <div>
-            <h2>{selectedPatientId ? "Update Patient" : "Create Patient"}</h2>
-            <div className="input-container">
-              {/* Input fields for patient details */}
-              <input type="text" value={patient_Name} onChange={this.handleNameInputChange} placeholder="Enter Patient Name" />
-              <input type="text" value={gender} onChange={this.handlegenderInputChange} placeholder="Enter Gender" />
-              <input
-                type="text"
-                value={patient_Age}
-                onChange={this.handleDescriptionInputChange}
-                placeholder="Enter Age"
-              />
-              <input type="text" value={patient_No} onChange={this.handleNoInputChange} placeholder="Enter Patient Number" />
-              <input type="text" value={password} onChange={this.handlePasswordInputChange} placeholder="Enter Password" />
-              {/* <input type="text" value={doctorId} onChange={this.handleDoctorIdInputChange} placeholder="Enter Doctor ID" /> */}
-              {selectedPatientId ? (
-                <button className="btn btn-primary" onClick={this.updatePatient}>
-                  Save
-                </button>
-              ) : (
-                <button className="btn btn-primary" onClick={this.createPatient}>
-                  Create
-                </button>
-              )}
+      <div>
+        <NavDocView />
+        <div className="patient-container">
+          <h2>Patient List</h2>
+          {showForm && (
+            <div>
+              <h2>{selectedPatientId ? "Update Patient" : "Create Patient"}</h2>
+              <div className="input-container">
+                {/* Input fields for patient details */}
+                <input
+                  type="text"
+                  value={patient_Name}
+                  onChange={this.handleNameInputChange}
+                  placeholder="Enter Patient Name"
+                />
+                <input
+                  type="text"
+                  value={gender}
+                  onChange={this.handlegenderInputChange}
+                  placeholder="Enter Gender"
+                />
+                <input
+                  type="text"
+                  value={patient_Age}
+                  onChange={this.handleDescriptionInputChange}
+                  placeholder="Enter Age"
+                />
+                <input
+                  type="text"
+                  value={patient_No}
+                  onChange={this.handleNoInputChange}
+                  placeholder="Enter Patient Number"
+                />
+                <input
+                  type="text"
+                  value={password}
+                  onChange={this.handlePasswordInputChange}
+                  placeholder="Enter Password"
+                />
+                {/* <input
+                  type="text"
+                  value={doctorId}
+                  onChange={this.handleDoctorIdInputChange}
+                  placeholder="Enter Doctor ID"
+                /> */}
+                {selectedPatientId ? (
+                  <button className="btn btn-primary" onClick={this.updatePatient}>
+                    Save
+                  </button>
+                ) : (
+                  <button className="btn btn-primary" onClick={this.createPatient}>
+                    Create
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        <div className="card-container">
-          {patients.map((patient) => (
-            <div className="card" key={patient.patient_Id}>
-              <div className="card-header">
-                <h3>{patient.patient_Name}</h3>
+          <div className="card-container">
+            {patients.map((patient) => (
+              <div className="card" key={patient.patient_Id}>
+                <div className="card-header">
+                  <h3>{patient.patient_Name}</h3>
+                </div>
+                <div className="card-body">
+                  <p>
+                    <b>Gender: </b>
+                    {patient.gender}
+                  </p>
+                  <p>
+                    <b>Age: </b>
+                    {patient.patient_Age}
+                  </p>
+                  <p>
+                    <b>Patient No: </b>
+                    {patient.patient_No}
+                  </p>
+                  {/* <p>
+                    <b>Doctor ID: </b>
+                    {patient.doctorId}
+                  </p> */}
+                  <p>
+                    <b>Password: </b>
+                    {patient.password}
+                  </p>
+                </div>
+                
               </div>
-              <div className="card-body">
-                <p><b>Gender: </b>{patient.gender}</p>
-                <p><b>Age: </b>{patient.patient_Age}</p>
-                <p><b>Patient No: </b>{patient.patient_No}</p>
-                {/* <p>Password: {patient.password}</p> */}
-                {/* <p>Doctor ID: {patient.doctorId}</p> */}
-              </div>
-              <div className="card-footer">
-                <button className="btn btn-primary" onClick={() => this.handleUpdate(patient.patient_Id)}>
-                  Update
-                </button>
-                <button className="btn btn-danger" onClick={() => this.handleDelete(patient.patient_Id)}>
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
       </div>
     );
   }
 }
 
-export default Patient;
+export default Docpatient;

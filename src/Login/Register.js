@@ -7,7 +7,7 @@ import NavDocLogin from '../Navbar/NavDocLogin';
 export default function DoctorAuth() {
   const [isSignIn, setIsSignIn] = useState(true);
   const [name, setName] = useState('');
-  const [specialization, setSpecialization] = useState('');
+  const [selectedSpecialization, setSelectedSpecialization] = useState('');
   const [email, setEmail] = useState('');
   const [contactNo, setContactNo] = useState('');
   const [password, setPassword] = useState('');
@@ -30,7 +30,7 @@ export default function DoctorAuth() {
     let formData = new FormData();
     formData.append('imageFile', image);
     formData.append('doctor.Doctor_Name', name);
-    formData.append('doctor.Specialization', specialization);
+    formData.append('doctor.Specialization', selectedSpecialization);
     formData.append('doctor.Doctor_Email', email);
     formData.append('doctor.Contact_No', contactNo);
     formData.append('doctor.Password', password);
@@ -76,7 +76,7 @@ export default function DoctorAuth() {
         .then((token) => {
           sessionStorage.setItem('token', token);
           toast.success('Login Successful');
-          navigate('/home');
+          navigate('/homedoctor');
         })
         .catch((error) => {
           console.error('Error:', error);
@@ -93,7 +93,7 @@ export default function DoctorAuth() {
       result = false;
       errorMessage += 'Name, ';
     }
-    if (specialization === null || specialization === '') {
+    if (selectedSpecialization === null || selectedSpecialization === '') {
       result = false;
       errorMessage += 'Specialization, ';
     }
@@ -139,155 +139,164 @@ export default function DoctorAuth() {
   };
 
   return (
-    <div><NavDocLogin/>
-    <div className="login-wrap">
-      <div className="login-html">
-        <input
-          id="tab-1"
-          type="radio"
-          name="tab"
-          className="sign-in"
-          checked={isSignIn}
-          onChange={() => setIsSignIn(true)}
-        />
-        <label htmlFor="tab-1" className="tab">
-          Sign In
-        </label>
-        <input
-          id="tab-2"
-          type="radio"
-          name="tab"
-          className="sign-up"
-          checked={!isSignIn}
-          onChange={() => setIsSignIn(false)}
-        />
-        <label htmlFor="tab-2" className="tab">
-          Sign Up
-        </label>
-        <div className="login-form">
-          {isSignIn ? (
-            <div className="sign-in-htm">
-              <form onSubmit={handleLogin} className="container">
-                <div className="group">
-                  <label htmlFor="doctorName" className="label">
-                    Username
-                  </label>
-                  <input
-                    id="doctorName"
-                    type="text"
-                    className="input"
-                    value={doctorName}
-                    onChange={(e) => setDoctorName(e.target.value)}
-                  />
-                </div>
-                <div className="group">
-                  <label htmlFor="doctorPassword" className="label">
-                    Password
-                  </label>
-                  <input
-                    id="doctorPassword"
-                    type="password"
-                    className="input"
-                    data-type="password"
-                    value={doctorPassword}
-                    onChange={(e) => setDoctorPassword(e.target.value)}
-                  />
-                </div>
-                <div className="group">
-                  <input type="submit" className="button" value="Sign In" />
-                </div>
-                <div className="hr"></div>
-                <div className="foot-lnk">
-                  <a href="#forgot">Forgot Password?</a>
-                </div>
-              </form>
-            </div>
-          ) : (
-            <div className="sign-up-htm">
-              <form onSubmit={handleRegister} className="container">
-                <div className="group">
-                  <label htmlFor="name" className="label">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    className="input small-input" // Added "small-input" class
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
-                <div className="group">
-                  <label htmlFor="specialization" className="label">
-                    Specialization
-                  </label>
-                  <input
-                    id="specialization"
-                    type="text"
-                    className="input small-input" // Added "small-input" class
-                    value={specialization}
-                    onChange={(e) => setSpecialization(e.target.value)}
-                  />
-                </div>
-                <div className="group ">
-                  <label htmlFor="email" className="label">
-                    Email Address
-                  </label>
-                  <input
-                    id="email"
-                    type="text"
-                    className="input small-input" // Added "small-input" class
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div className="group">
-                  <label htmlFor="contactNo" className="label">
-                    Contact No
-                  </label>
-                  <input
-                    id="contactNo"
-                    type="text"
-                    className="input small-input" // Added "small-input" class
-                    value={contactNo}
-                    onChange={(e) => setContactNo(e.target.value)}
-                  />
-                </div>
-                <div className="group">
-                  <label htmlFor="password" className="label">
-                    Password
-                  </label>
-                  <input
-                    id="password"
-                    type="password"
-                    className="input small-input" // Added "small-input" class
-                    data-type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-                <div className="group">
-                  <label htmlFor="image" className="label">
-                    Image
-                  </label>
-                  <input
-                    id="image"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                    className="input"
-                  />
-                </div>
-                <div className="group">
-                  <input type="submit" className="button" value="Sign Up" />
-                </div>
-                <div className="hr"></div>
-              </form>
-            </div>
-          )}
+    <div>
+      <NavDocLogin />
+      <div className="login-wrap">
+        <div className="login-html">
+          <input
+            id="tab-1"
+            type="radio"
+            name="tab"
+            className="sign-in"
+            checked={isSignIn}
+            onChange={() => setIsSignIn(true)}
+          />
+          <label htmlFor="tab-1" className="tab">
+            Sign In
+          </label>
+          <input
+            id="tab-2"
+            type="radio"
+            name="tab"
+            className="sign-up"
+            checked={!isSignIn}
+            onChange={() => setIsSignIn(false)}
+          />
+          <label htmlFor="tab-2" className="tab">
+            Sign Up
+          </label>
+          <div className="login-form">
+            {isSignIn ? (
+              <div className="sign-in-htm">
+                <form onSubmit={handleLogin} className="container">
+                  <div className="group">
+                    <label htmlFor="doctorName" className="label">
+                      Username
+                    </label>
+                    <input
+                      id="doctorName"
+                      type="text"
+                      className="input"
+                      value={doctorName}
+                      onChange={(e) => setDoctorName(e.target.value)}
+                    />
+                  </div>
+                  <div className="group">
+                    <label htmlFor="doctorPassword" className="label">
+                      Password
+                    </label>
+                    <input
+                      id="doctorPassword"
+                      type="password"
+                      className="input"
+                      data-type="password"
+                      value={doctorPassword}
+                      onChange={(e) => setDoctorPassword(e.target.value)}
+                    />
+                  </div>
+                  <div className="group">
+                    <input type="submit" className="button" value="Sign In" />
+                  </div>
+                  <div className="hr"></div>
+                  <div className="foot-lnk">
+                    <a href="#forgot">Forgot Password?</a>
+                  </div>
+                </form>
+              </div>
+            ) : (
+              <div className="sign-up-htm">
+                <form onSubmit={handleRegister} className="container">
+                  <div className="group">
+                    <label htmlFor="name" className="label">
+                      Name
+                    </label>
+                    <input
+                      id="name"
+                      type="text"
+                      className="input small-input"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                  <div className="group">
+                    <label htmlFor="specialization" className="label">
+                      Specialization
+                    </label>
+                    <select
+  id="specialization"
+  className="input small-input"
+  value={selectedSpecialization}
+  onChange={(e) => setSelectedSpecialization(e.target.value)}
+  style={{ color: '#000', backgroundColor: '#ffff' }}
+                    >
+                      <option value="">Select specialization</option>
+                      <option value="Cardiology">Cardiology</option>
+                      <option value="Diabetology">Diabetology</option>
+                      <option value="Gastroenterology">Gastroenterology</option>
+                      <option value="Neurology">Neurology</option>
+                      <option value="Orthopedics">Orthopedics</option>
+                      <option value="Pediatrics">Pediatrics</option>
+                      <option value="Psychiatry">Psychiatry</option>
+                    </select>
+                  </div>
+                  <div className="group">
+                    <label htmlFor="email" className="label">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      type="text"
+                      className="input small-input"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="group">
+                    <label htmlFor="contactNo" className="label">
+                      Contact No
+                    </label>
+                    <input
+                      id="contactNo"
+                      type="text"
+                      className="input small-input"
+                      value={contactNo}
+                      onChange={(e) => setContactNo(e.target.value)}
+                    />
+                  </div>
+                  <div className="group">
+                    <label htmlFor="password" className="label">
+                      Password
+                    </label>
+                    <input
+                      id="password"
+                      type="password"
+                      className="input small-input"
+                      data-type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  <div className="group">
+                    <label htmlFor="image" className="label">
+                      Image
+                    </label>
+                    <input
+                      id="image"
+                      type="file"
+                      className="input small-input"
+                      onChange={handleImageChange}
+                    />
+                  </div>
+                  <div className="group">
+                    <input type="submit" className="button" value="Sign Up" />
+                  </div>
+                  <div className="hr"></div>
+                </form>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }

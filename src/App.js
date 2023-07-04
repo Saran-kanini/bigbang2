@@ -8,17 +8,14 @@ import Patient from './Models/Patient';
 import Admin from './Models/Admin';
 import Home from './Models/Home';
 import Register from './Login/Register';
-import Login from './Login/Login';
 import { NavDropdown } from 'react-bootstrap';
-import PatientRegister from './Login/Register-patient';
 import PatientLogin from './Login/Login-patient';
 import AdminLogin from './Login/Admin-Login';
 import HomePatient from './Home/HomePatient';
 import HomeDoctor from './Home/HomeDoctor';
 import Doctorview from './View/Doctorview';
 import PatientView from './View/Patientview';
-
-
+import Docpatient from './View/Docpatient';
 function App() {
   return (
     <div className="App">
@@ -27,8 +24,6 @@ function App() {
         <Routes>
           <Route path="/admin" element={<Admin />} />
           <Route path="/register" element={<Register/>} />
-          <Route path="/registerpatient" element={<PatientRegister />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/loginpatient" element={<PatientLogin />} />
           <Route path="/home" element={<Home />} />
           <Route path="/doctor" element={<Doctor />} />
@@ -38,7 +33,7 @@ function App() {
           <Route path="/homedoctor" element={<HomeDoctor />} />
           <Route path="/docview" element={<Doctorview />} />
           <Route path="/patview" element={<PatientView />} />
-          
+          <Route path="/docpat" element={<Docpatient/>} />
         </Routes>
       </BrowserRouter>
     </div>

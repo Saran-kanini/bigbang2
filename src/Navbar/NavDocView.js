@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { NavDropdown } from 'react-bootstrap';
 
-export default function Navbardoc() {
-  return (
-    <div>
-        <div> <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+
+export class NavDocView extends Component {
+  render() {
+    return (
+      <div> <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
@@ -13,16 +14,6 @@ export default function Navbardoc() {
             <li className="nav-item">
               <NavLink className="nav-link" to="/homedoctor" activeClassName="active">
                 Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/docview" activeClassName="active">
-                Doctor
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/patview" activeClassName="active">
-                Patient
               </NavLink>
             </li>
             <NavDropdown title="Register" id="register-dropdown">
@@ -42,6 +33,8 @@ export default function Navbardoc() {
         </div>
       </div>
     </nav></div>
-    </div>
-  )
+    )
+  }
 }
+
+export default NavDocView
