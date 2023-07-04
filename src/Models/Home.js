@@ -9,6 +9,12 @@ import hospital from './1556286612623.jpeg';
 import doctor from './Doctorhome.jpg';
 import patient from './patient.jpg';
 import Navbar from './Navbar';
+import hos from './Hospital.jpg'
+import icu from './ICU.jpg'
+import blood from './blood.jpg'
+import ambulance from './ambulance.jpg'
+import glucose from './glucose.jpeg'
+
 
 export default class Home extends Component {
   constructor(props) {
@@ -63,8 +69,8 @@ export default class Home extends Component {
       <div>
         <Navbar />
         <h1 className="App">
-          <img src={hospital} className="hospital-icon" alt="Hospital Logo" />
-          Kanini Hospital
+          <img src={ambulance} className="hospital-icon" alt="Hospital Logo" />
+          Medway Hospital
         </h1>
         <Carousel>
           {doctors.map((doctor) => (
@@ -163,51 +169,119 @@ export default class Home extends Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className="statistics-container">
-          <div className="card-container">
-            <div className="card">
-              <h3>Statistics</h3>
-              <div className="statistics-item">
-                <p className="statistics-label">Total Doctors:</p>
-                <p className="statistics-value">{totalDoctors}</p>
+        </div><br/><br/>
+        <div className="container hp-sec9">
+      
+      <div id="myCarousel" className="carousel slide brach-slide" data-ride="carousel" data-interval={60000}>
+        <div className="carousel-inner branch-height branch-container">
+          <div className="item active">
+            <div className="row">
+              <div className="col-md-6 col-xs-12 branch-img">
+                <img src={hos} style={{ width: '100%' }} className='img1' alt="Medway Hospitals Kodambakkam" />
               </div>
-              <div className="statistics-item">
-                <p className="statistics-label">Pending Requests:</p>
-                <p className="statistics-value">{this.state.pendingRequests}</p>
+              <div className="col-md-6 col-xs-12 branch-quotes">
+                <div className="hp-branch-wrap_new">
+                  <h3>Medway Hospitals</h3>
+                  <p className="p-roboto p-content">
+                    Medway Hospitals, Kodambakkam commenced operations in August 2017 and serves as the foundational core of the Medway Group Of Hospitals, seamlessly integrating routine healthcare and medical emergencies in the busy neighborhood situated in South Chennai.The hospital has a modern infrastructure equipped with the latest medical technology. We are committed to providing the highest quality of healthcare for our patients. With a core specialization in diabetology and cardiology, Medway is known for offering high-class treatment with advanced technologies.
+
+Excellence in cardiology
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+          {/* Add other carousel items here */}
         </div>
+       
+      </div>
+</div>
+<div className="card-container">
+  <div className="card">
+    <div className="card-body">
+      <h3 className="card-title">Statistics</h3>
+      <div className="statistics-item">
+        <p className="statistics-label">Total Doctors:</p>
+        <p className="statistics-value">{totalDoctors}</p>
+      </div>
+      <div className="statistics-item">
+        <p className="statistics-label">Pending Requests:</p>
+        <p className="statistics-value">{this.state.pendingRequests}</p>
+      </div>
+    </div>
+  </div>
+</div>
 
         <div className="card-container">
-          <div className="card">
-            <img className="card-image" src={patient} alt="Patient" />
-            <div className="card-body">
-              <h5 className="card-title">Patients</h5>
-              <Link to="/patient" className="btn btn-primary">
-                View Patients
-              </Link>
-            </div>
+  <div className="card">
+    <img className="cardimg" src={patient} alt="Patient" />
+    <div className="card-body">
+      <h5 className="card-title">Patients</h5>
+      <Link to="/patient" className="btn btn-primary">
+        View Patients
+      </Link>
+    </div>
+  </div>
+  <div className="card">
+    <img className="cardimg" src={doctor} alt="Doctor" />
+    <div className="card-body">
+      <h5 className="card-title">Doctors</h5>
+      <Link to="/doctor" className="btn btn-primary">
+        View Doctors
+      </Link>
+    </div>
+  </div>
+</div>
+
+
+       <br/>
+
+       <div>
+      <section className="hp-sec8">
+        <div className="container vertical-align-middle-hp-sec8">
+          <div className="col-xs-12 col-sm-5">
+            <h3>
+              Why Medway? <span style={{ color: '#6ca836' }}></span>
+            </h3>
+            <p className="hp-sec8-para p-roboto">
+              Medway Hospital is a leading healthcare facility offering treatment and care for patients from all walks of life. Started with two specialties, the past decade has witnessed the hospital expand to five units.
+              Known for its comprehensive patient{' '}
+              <a href="https://medwayhospitals.com/blog.php">care plan</a>, the team is available round the clock to ease the recovery process. With advanced ICU facilities, blood banks, and emergency care, the team ensures to take care of you and your family.
+            </p>
           </div>
-          <div className="card">
-            <img className="card-image" src={doctor} alt="Doctor" />
-            <div className="card-body">
-              <h5 className="card-title">Doctors</h5>
-              <Link to="/admin" className="btn btn-primary">
-                View Doctors
-              </Link>
+          <div className="col-xs-12 col-sm-7">
+            <div className="row">
+              <div className="col-xs-6">
+                <div className="hp-sec8-icons-wrap">
+                  <img src={icu} alt="Gauranteed" className="imgicu" />
+                  <h4>Advanced ICU Facility</h4>
+                </div>
+              </div>
+              <div className="col-xs-6">
+                <div className="hp-sec8-icons-wrap">
+                  <img src={blood} alt="Gauranteed" className="imgicu" />
+                  <h4>Round-The-Clock Blood Bank</h4>
+                </div>
+              </div>
+            </div><br/>
+            <div className="row hp-sec8-row2">
+              <div className="col-xs-6">
+                <div className="hp-sec8-icons-wrap">
+                  <img src={ambulance} alt="Gauranteed" className="imgicu" /><br/>
+                  <h4>24*7 Ambulance Service</h4>
+                </div>
+              </div>
+              <div className="col-xs-6">
+                <div className="hp-sec8-icons-wrap">
+                  <img src={glucose} alt="Gauranteed" className="imgicu" />
+                  <h4>Ambulatory Glucose Profile (AGP) For Diabetes Care</h4>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        <section class="nh-pillarpage-section"><h2>Latest Blogs <small>Find the latest blogs from our experts</small></h2>  
-
-  <div class="blogs-news-events">
-    
-  </div>
-</section>
-
+      </section>
+    </div><br/>
         <div className="container mb-4">
           <iframe
             title="Google Map"

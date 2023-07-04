@@ -135,6 +135,11 @@ export default function Doctorview() {
     return Math.floor(Math.random() * (maxExperience - minExperience + 1)) + minExperience;
   };
 
+  const generateRandomColorClass = () => {
+    const colorClasses = ['card-color-1', 'card-color-2', 'card-color-3', 'card-color-4', 'card-color-5'];
+    return colorClasses[Math.floor(Math.random() * colorClasses.length)];
+  };
+
   return (
     <div>
       <Navbarpat />
@@ -151,7 +156,10 @@ export default function Doctorview() {
           <p>No records found</p>
         ) : (
           filteredDoctors.map((doctor) => (
-            <div key={doctor.doctor_Id} className="doctor-card">
+            <div
+              key={doctor.doctor_Id}
+              className={`doctor-card ${generateRandomColorClass()}`}
+            >
               <div className="doc-image">
                 {doctor.imageData && convertToImage(doctor.imageData)}
               </div>
@@ -206,7 +214,6 @@ export default function Doctorview() {
                       onChange={(event) => handleImageChange(event, doctor.doctor_Id)}
                     />
                   </p>
-                  {/* Add more fields as per your requirements */}
                   <div className="button-container">
                     <button onClick={() => handleUpdate(doctor)}>Save</button>
                     <button onClick={() => setEditMode(null)}>Cancel</button>
@@ -220,8 +227,6 @@ export default function Doctorview() {
                   <p><b>Email:</b> {doctor.doctor_Email}</p>
                   <p><b>Contact No:</b> {doctor.contact_No}</p>
                   <p><b>Experience:</b> {generateRandomExperience()} years</p>
-                  {/* <p><b>Status:</b> {doctor.status}</p> */}
-                  {/* Render other doctor details */}
                 </div>
               )}
             </div>

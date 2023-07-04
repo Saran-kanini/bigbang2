@@ -9,8 +9,8 @@ export default class Patient extends Component {
     this.state = {
       patients: [],
       patient_Name: "",
-      disease: "",
-      disease_Description: "",
+      gender: "",
+      patient_Age: "",
       patient_No: "",
       password: "",
       doctor_Id: "",
@@ -35,14 +35,22 @@ export default class Patient extends Component {
       });
   }
 
-  // Other methods...
+  handleUpdate = (patientId) => {
+    // Implement your logic to update the patient with the specified ID
+    console.log("Update patient with ID:", patientId);
+  };
+
+  deletePatient = (patientId) => {
+    // Implement your logic to delete the patient with the specified ID
+    console.log("Delete patient with ID:", patientId);
+  };
 
   toggleModal = () => {
     this.setState((prevState) => ({
       showModal: !prevState.showModal,
       patient_Name: "",
-      disease: "",
-      disease_Description: "",
+      gender: "",
+      patient_Age: "",
       patient_No: "",
       password: "",
       doctor_Id: ""
@@ -53,30 +61,40 @@ export default class Patient extends Component {
     const {
       patients,
       patient_Name,
-      disease,
-      disease_Description,
+      gender,
+      patient_Age,
       patient_No,
       password,
       doctor_Id,
       selectedpatient_Id,
       showModal
     } = this.state;
-  
+
     return (
       <div className="patient-container">
         <h2>Patients</h2>
         <button onClick={this.toggleModal}>Create Patient</button>
-        
+
         <div className="patient-list">
           {patients.map((patient) => (
-            <div className={`patient-card ${selectedpatient_Id === patient.id ? "selected" : ""}`} key={patient.id}>
+            <div
+              className={`patient-card ${
+                selectedpatient_Id === patient.id ? "selected" : ""
+              }`}
+              key={patient.id}
+            >
               <h3>{patient.patient_Name}</h3>
-              <p>Disease: {patient.disease}</p>
+              <p>Gender: {patient.gender}</p>
+              <p>Age: {patient.patient_Age}</p>
               <p>Patient Number: {patient.patient_No}</p>
               <p>Doctor ID: {patient.doctor_Id}</p>
               <div className="card-buttons">
-                <button onClick={() => this.handleUpdate(patient.id)}>Edit</button>
-                <button onClick={() => this.deletePatient(patient.id)}>Delete</button>
+                <button onClick={() => this.handleUpdate(patient.id)}>
+                  Edit
+                </button>
+                <button onClick={() => this.deletePatient(patient.id)}>
+                  Delete
+                </button>
               </div>
             </div>
           ))}
@@ -84,5 +102,4 @@ export default class Patient extends Component {
       </div>
     );
   }
-  
 }

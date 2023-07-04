@@ -16,6 +16,8 @@ import AdminLogin from './Login/Admin-Login';
 import HomePatient from './Home/HomePatient';
 import HomeDoctor from './Home/HomeDoctor';
 import Doctorview from './View/Doctorview';
+import PatientView from './View/Patientview';
+
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
           <Route path="/homepatient" element={<HomePatient />} />
           <Route path="/homedoctor" element={<HomeDoctor />} />
           <Route path="/docview" element={<Doctorview />} />
+          <Route path="/patview" element={<PatientView />} />
+          
         </Routes>
       </BrowserRouter>
     </div>

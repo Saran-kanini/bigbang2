@@ -22,7 +22,7 @@
 }
 
 .card {
-  width: 300px;
+  width: 30px;
   margin: 10px;
   text-align: center;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -64,12 +64,14 @@
 .statistics-value {
   font-size: 18px;
 }
-.d-block{
+
+.d-block {
   height: 500px;
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
 }
+
 .footer {
   background-color: #0d0c0c;
   padding: 40px 0;
@@ -112,14 +114,6 @@
   font-size: 20px;
 }
 
-.footer-copyright {
-  font-size: 14px;
-  color: #faf3f3;
-  margin-top: 20px;
-  text-align: center;
-}
-
-/* Updated styles for Font Awesome icons */
 .social-icons i {
   width: 20px;
   height: 20px;
@@ -143,4 +137,114 @@
   color: #777777;
   margin-top: 20px;
   text-align: center;
+}
+
+/* Patientview.css */
+
+.hp-sec8 {
+  background-color: #f5f5f5;
+  padding: 40px 0;
+}
+
+.vertical-align-middle-hp-sec8 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hp-sec8 h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.hp-sec8-para {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.hp-sec8-para a {
+  color: #6ca836;
+}
+
+.features-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.hp-sec8-icons-wrap h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.hp-sec8-row2 {
+  margin-top: 20px;
+}
+
+.imgicu {
+  width: 50px;
+}
+
+/* Additional styles as per your requirements */
+.card-container {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  flex: 0 0 calc(50% - 20px);
+}
+
+.hp-sec8 .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hp-sec8 .col-xs-12 {
+  flex: 0 0 100%;
+}
+
+.hp-sec8 .col-sm-5 {
+  flex: 0 0 100%;
+  margin-bottom: 20px;
+}
+
+.hp-sec8 .col-xs-12.col-sm-7 {
+  flex: 0 0 100%;
+}
+
+.hp-sec8 .col-xs-6 {
+  flex: 0 0 calc(50% - 10px);
+}
+
+.hp-sec8 .hp-sec8-icons-wrap {
+  text-align: center;
+}
+.cardimg{
+  width: 300px;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 10px;
+  height: 200px;
+}
+
+.statistics-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.statistics-label {
+  font-weight: bold;
+}
+
+.statistics-value {
+  font-size: 18px;
 }
