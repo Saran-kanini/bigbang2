@@ -5,7 +5,7 @@ import { NavDropdown } from 'react-bootstrap';
 export default function Navbardoc() {
   return (
     <div>
-        <div> <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div> <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
       <div className="container">
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">

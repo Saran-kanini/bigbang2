@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Variables } from "../Variables";
 import "./Appointment.css";
+import Navpatient from "../Navbar/Navpatient";
 
 export class Appointment extends Component {
   constructor(props) {
@@ -87,7 +88,7 @@ export class Appointment extends Component {
     };
 
     axios
-      .post(`${Variables.API_URL}Appointment`, newAppointment, {
+      .post(`${Variables.API_URL}Appointments`, newAppointment, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -230,6 +231,7 @@ export class Appointment extends Component {
             } = this.state;
           
             return (
+                <div><Navpatient/>
               <div className="appointment-container">
                 <h2>Appointments</h2>
               {/* Input fields inside a card */}
@@ -310,8 +312,6 @@ export class Appointment extends Component {
                       </div>
                     </div>
                   </div>
-               
-          
                 <h3>Appointment List</h3>
                 <div className="appointment-list">
                   {appointments.map((appointment) => (
@@ -324,29 +324,15 @@ export class Appointment extends Component {
                         <p className="card-text">Phone Number: {appointment.patientPhoneNumber}</p>
                         <p className="card-text">Email: {appointment.patientEmail}</p>
                         <p className="card-text">Patient ID: {appointment.patient_Id}</p>
-                        <p className="card-text">Doctor ID: {appointment.doctor_Id}</p>
-                        <button
-                          className="btn btn-secondary"
-                          onClick={() => this.handleUpdate(appointment.appointmentId)}
-                        >
-                          Update
-                        </button>
-                        <button
-                          className="btn btn-danger"
-                          onClick={() => this.handleDelete(appointment.appointmentId)}
-                        >
-                          Delete
-                        </button>
+                        <p className="card-text">Doctor ID: {appointment.doctor_Id}</p>  
                       </div>
                     </div>
                   ))}
-          
-              
                 </div>
+              </div>
               </div>
             );
           }
-          
 }
 
 export default Appointment;

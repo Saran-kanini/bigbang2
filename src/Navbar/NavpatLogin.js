@@ -6,7 +6,7 @@ import { NavDropdown } from 'react-bootstrap';
 export class NavpatLogin extends Component {
   render() {
     return (
-      <div> <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div> <nav className="navbar navbar-expand-lg navbar-dark bg-info">
       <div className="container">
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">

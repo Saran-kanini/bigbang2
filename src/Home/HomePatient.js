@@ -20,6 +20,7 @@ import eye from './eye.jpg'
 import kidney from './kidney.jpg'
 import ortho from './ortho.jpg'
 import pul from './pul.jpg'
+import Navpatient from '../Navbar/Navpatient';
 
 export default class HomePatient extends Component {
   constructor(props) {
@@ -72,7 +73,7 @@ export default class HomePatient extends Component {
 
     return (
       <div>
-        <Navbardoc/>
+        <Navpatient/>
         <h1 className="App">
           <img src={ambulance} className="hospital-icon" alt="Hospital Logo" />
           Medway Hospital
