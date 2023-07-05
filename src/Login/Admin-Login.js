@@ -37,7 +37,7 @@ export default function AdminLogin() {
           console.log(token); // Log the token for debugging
           sessionStorage.setItem('token', token);
           toast.success('Success');
-          navigate('/home');
+          navigate('/');
         })
         .catch((error) => {
           console.error('Error:', error);
