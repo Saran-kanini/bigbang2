@@ -29,6 +29,9 @@ export class Navpatient extends Component {
               <NavDropdown.Item as={NavLink} to="/loginpatient" activeClassName="active">
                 Register Patient
               </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/adminlogin" activeClassName="active">
+                Login Admin
+              </NavDropdown.Item>
             </NavDropdown>
             
           </ul>

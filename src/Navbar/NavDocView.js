@@ -23,6 +23,9 @@ export class NavDocView extends Component {
               <NavDropdown.Item as={NavLink} to="/loginpatient" activeClassName="active">
                 Register Patient
               </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/adminlogin" activeClassName="active">
+                Login Admin
+              </NavDropdown.Item>
             </NavDropdown>
             {/* <li className="nav-item">
               <NavLink className="nav-link" to="/login" activeClassName="active">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import backgroundImg from './Hospital.jpg';
+import AdminNav from '../Navbar/AdminNav';
 
 import './Admin.css'; // Import the CSS file for styling
 
@@ -70,6 +71,7 @@ export default function AdminLogin() {
         height: '100vh',
       }}
     >
+      <div><AdminNav/></div>
       <div className="align">
         <div className="grid align__item">
           <div className="register">
